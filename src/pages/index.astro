@@ -40,7 +40,7 @@ const dispatchFiles: DispatchFile[] = fs.readdirSync(dispatchesDir)
     return {
       slug,
       title,
-      date: new Date(fileStats.birthtime).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+      date: new Date(fileStats.birthtime).toLocaleString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' }),
       filePath
     };
   })
