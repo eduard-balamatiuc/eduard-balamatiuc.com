@@ -1,21 +1,122 @@
+:root {
+  --bg-color: #1a1a1a;
+  --text-color: #e1e1e1;
+  --accent-color: #4a88e5;
+  --secondary-color: #555;
+  --hover-color: #333;
+  --border-color: #333;
+  --table-row-hover: #252525;
+  --views-color: #888;
+  --date-color: #666;
+}
+
+/* Light theme variables */
+.light-theme {
+  --bg-color: #f4f4f4;
+  --text-color: #333;
+  --accent-color: #2563eb;
+  --secondary-color: #777;
+  --hover-color: #eee;
+  --border-color: #ddd;
+  --table-row-hover: #f0f0f0;
+  --views-color: #666;
+  --date-color: #888;
+}
+
 html {
-    background-color: #f1f5f9;
-    font-family: sans-serif;
-  }
-  
-  body {
-    margin: 0 auto;
-    width: 100%;
-    max-width: 80ch;
-    padding: 1rem;
-    line-height: 1.5;
-  }
-  
-  * {
-    box-sizing: border-box;
-  }
-  
-  h1 {
-    margin: 1rem 0;
-    font-size: 2.5rem;
-  }
+  background-color: var(--bg-color);
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  color: var(--text-color);
+}
+
+body {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 900px;
+  padding: 2rem;
+  line-height: 1.6;
+}
+
+* {
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  margin: 1rem 0;
+}
+
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Table styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+}
+
+th {
+  text-align: left;
+  color: var(--secondary-color);
+  font-weight: normal;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+td {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+tr:hover {
+  background-color: var(--table-row-hover);
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+/* Toggle button */
+.theme-toggle {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Post styling */
+.post-date {
+  color: var(--date-color);
+}
+
+.post-views {
+  color: var(--views-color);
+  text-align: right;
+}
+
+.post-title {
+  font-weight: normal;
+}
