@@ -1,0 +1,47 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+
+const pageTitle = "About";
+---
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/x-icon" href="media/letter-e.png">
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle} | Eduard Balamatiuc</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <Header />
+    
+    <main>
+        <h2>About Me</h2>
+        <p>
+            Hello, I'm Eduard. This is my little space on the internet where I write and share stuff.
+        </p>
+        
+        <h3>Things connected to me:</h3>
+        <ul>
+            <li><a href="https://linktr.ee/sigmoid?utm_source=linktree_profile_share&ltsid=fda68960-4b12-479f-8500-caf583aca982">Sigmoid</a></li>
+            <li>Data Science</li>
+            <li>Software Engineering</li>
+            <li>AI</li>
+            <li>Robotics</li>
+            <li>Math</li>
+        </ul>
+    </main>
+
+    <script>
+        // Simple theme toggle function
+        const themeToggle = document.querySelector('.theme-toggle');
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                document.documentElement.classList.toggle('light-theme');
+            });
+        }
+    </script>
+</body>
+</html> 
