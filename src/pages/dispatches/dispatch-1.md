@@ -1,4 +1,5 @@
-So this site website page call it whatever, will be my laboratory work, at least in until I present it to my teacher and I got a requirement of using Astro build for it. 
+So this site website page call it whatever, will be my laboratory work
+,at least in until I present it to my teacher and I got a requirement of using Astro build for it. 
 
 For some context on my experience, well I don't have any, like almost not at all, I did some bad looking html based pages when I was in middle school and high school but at that point my experience stopped ahahaha.
 
