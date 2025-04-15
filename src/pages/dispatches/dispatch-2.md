@@ -15,4 +15,3 @@ And then I gave up since it was not working, did a prompt and funny enough appar
 Then I was like, alright I better be write about this in my next dispatch, so here is me doing that haha. I should probably have a way of organizing all these learnings somehow by one so that it would be clearer for you the reader, or I could just ignore it for now, anyways.
 
 dispatch_output: character # have to be encoded as %23 in URLs.
-
