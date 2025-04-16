@@ -1,66 +1,25 @@
 ---
-import "../styles/global.css";
-import Header from "../components/Header.astro";
-import fs from 'node:fs';
-import path from 'node:path';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Dispatch from "../components/Dispatch.astro";
 
-const pageTitle = "Eduard Balamatiuc";
-
-// Define interfaces for dispatch data
-interface DispatchFile {
-  slug: string;
-  title: string;
-  date: string;
-  filePath: string;
-}
-
-// Function to read the first line of the file to get the title
-function getFirstLine(filePath: string): string {
-  try {
-    const content = fs.readFileSync(filePath, 'utf-8');
-    const firstLine = content.split('\n')[0].trim();
-    return firstLine || "Untitled Dispatch"; // Fallback if empty
-  } catch (error) {
-    console.error(`Error reading file ${filePath}:`, error);
-    return "Untitled Dispatch";
-  }
-}
-
-const dispatchesDir = path.join(process.cwd(), 'src/pages/dispatches');
-const dispatchFiles: DispatchFile[] = fs.readdirSync(dispatchesDir)
-  .filter((file: string) => file.endsWith('.md'))
-  .map((file: string) => {
-    const filePath = path.join(dispatchesDir, file);
-    const fileStats = fs.statSync(filePath);
+const dispatches = Object.values(await import.meta.glob('./dispatches/*.md', { eager: true })).sort((a: any, b: any) => {
+    const dateA = new Date(a.frontmatter.date).getTime();
+    const dateB = new Date(b.frontmatter.date).getTime();
     
-    // Extract date and generate slug
-    const slug = file.replace('.md', '');
-    const title = getFirstLine(filePath);
+    if (dateB !== dateA) {
+        return dateB - dateA;
+    }
     
-    return {
-      slug,
-      title,
-      date: new Date(fileStats.birthtime).toLocaleString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' }),
-      filePath
-    };
-  })
-  .sort((a: DispatchFile, b: DispatchFile) => {
-    // Sort descending by name of the file
-    return b.slug.localeCompare(a.slug);
-  });
+    // If dates are equal, check for time property
+    if (a.frontmatter.time && b.frontmatter.time) {
+        return b.frontmatter.time.localeCompare(a.frontmatter.time);
+    }
+    
+    return 0; // If no time property or times are equal, maintain original order
+});
 ---
 
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/x-icon" href="/letter-e.png">
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-</head>
-<body>
-    <Header />
+<BaseLayout pageTitle="Home">
     <main>
         <table>
             <thead>
@@ -70,18 +29,13 @@ const dispatchFiles: DispatchFile[] = fs.readdirSync(dispatchesDir)
                 </tr>
             </thead>
             <tbody>
-                {dispatchFiles.map((dispatch: DispatchFile) => (
-                    <tr>
-                        <td class="post-date">{dispatch.date}</td>
-                        <td class="post-title">
-                            <a href={`/dispatches/${dispatch.slug}`}>
-                                {dispatch.title}
-                            </a>
-                        </td>
-                    </tr>
-                ))}
+                {dispatches
+                    .map((dispatch: any) => (
+                        <tr>
+                            <Dispatch title={dispatch.frontmatter.title} date={dispatch.frontmatter.date} url={dispatch.url} />
+                        </tr>
+                    ))}
             </tbody>
         </table>
     </main>
-</body>
-</html>
+</BaseLayout>
