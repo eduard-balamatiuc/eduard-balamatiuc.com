@@ -1,3 +1,10 @@
+---
+layout: ../../layouts/MarkdownDispatchLayout.astro
+title: 'Hi there!'
+date: '2025-04-08'
+time: '10:00'
+---
+
 Hi there!
 
 I got no idea how you got here, like the probability of you being here is either that you're my Web Programing teacher that reviews my work at the moment (shout out to @strdr4605 if this blog ever gets lost of viewers ahahahah, he allowed me to combine one of my laboratory works with a task I had in my todo's for some time) or maybe you were just randomly browsing and stalking (lmaoo) through my profiles, you intersected with this link and decided that it might be a good idea to click it.
