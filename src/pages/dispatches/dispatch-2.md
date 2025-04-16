@@ -1,3 +1,9 @@
+---
+layout: ../../layouts/MarkdownDispatchLayout.astro
+title: 'So how the deployment happened?'
+date: '2025-04-08'
+time: '11:00'
+---
 So how the deployment happened?
 
 [This](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site) page basically was everything I needed. Then I saw that nothing happened, just breathe, let it do it's thing hit refresh a couple of times and come back again you'll see the deployment working. I had to watch a youtube video to confirm that I did everything right, but you don't lol.
