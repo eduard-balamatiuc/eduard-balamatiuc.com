@@ -1,31 +1,32 @@
-const defaultStarredTitles = [];
-document.querySelectorAll('.star-filled.default-star').forEach(starIcon => {
-  const title = starIcon.closest('.post-star').dataset.title;
-  if (title) defaultStarredTitles.push(title);
-});
+const starredDispatches = [
+  "So how the deployment happened?",
+];
 
-// Load user-starred items from localStorage
-const localStorageKey = 'user-starred-dispatches';
-let userStarred = JSON.parse(localStorage.getItem(localStorageKey) || '[]');
+document.addEventListener('DOMContentLoaded', () => {
+  // Load user-starred items from localStorage
+  const localStorageKey = 'user-starred-dispatches';
+  let userStarred = JSON.parse(localStorage.getItem(localStorageKey) || '[]');
 
-// Apply user starred state on page load
-function applyStarredState() {
+  // Apply starred state on page load
   document.querySelectorAll('.post-star').forEach(starCell => {
     const title = starCell.dataset.title;
     const starIcon = starCell.querySelector('svg');
     
     if (!title || !starIcon) return;
     
-    // Check if this item is in user-starred list
-    if (userStarred.includes(title)) {
+    // Check if this is a default starred item (gold and untoggable)
+    if (starredDispatches.includes(title)) {
+      starIcon.classList.remove('star-empty');
+      starIcon.classList.add('star-filled', 'default-star');
+    }
+    // Check if this item is in user-starred list (text color and toggable)
+    else if (userStarred.includes(title)) {
       starIcon.classList.remove('star-empty');
       starIcon.classList.add('star-filled', 'user-starred');
     }
   });
-}
 
-// Toggle starred state when clicking
-function setupStarToggle() {
+  // Toggle starred state when clicking
   document.querySelectorAll('.star-toggle').forEach(button => {
     button.addEventListener('click', (e) => {
       e.preventDefault();
@@ -37,7 +38,7 @@ function setupStarToggle() {
       if (!title || !starIcon) return;
       
       // Skip default starred items (they can't be toggled)
-      if (defaultStarredTitles.includes(title)) return;
+      if (starredDispatches.includes(title)) return;
       
       // Toggle starred state
       if (userStarred.includes(title)) {
@@ -56,10 +57,4 @@ function setupStarToggle() {
       localStorage.setItem(localStorageKey, JSON.stringify(userStarred));
     });
   });
-}
-
-// Initialize
-document.addEventListener('DOMContentLoaded', () => {
-  applyStarredState();
-  setupStarToggle();
 });
