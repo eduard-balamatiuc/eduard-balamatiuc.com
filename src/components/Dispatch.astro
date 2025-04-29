@@ -1,6 +1,7 @@
 ---
-const { title, date, url} = Astro.props;
+const { title, date, url, starred = false } = Astro.props;
 ---
 
+<td class="post-star">{starred ? "⭐" : ""}</td>
 <td class="post-date">{date}</td>
 <td class="post-title"><a href={url}>{title}</a></td>
