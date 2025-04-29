@@ -151,3 +151,39 @@ tr:hover .post-star svg {
 .post-title {
   font-weight: normal;
 }
+
+.star-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+}
+
+.star-empty {
+  opacity: 0;
+  color: var(--secondary-color);
+}
+
+tr:hover .star-empty {
+  opacity: 0.7;
+}
+
+.star-empty:hover {
+  opacity: 1;
+}
+
+.star-filled {
+  color: #ffc107;
+}
+
+.star-filled.default-star {
+  opacity: 1;
+}
+
+.user-starred {
+  opacity: 1 !important;
+}
