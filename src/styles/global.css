@@ -165,23 +165,26 @@ tr:hover .post-star svg {
 
 .star-empty {
   opacity: 0;
-  color: var(--secondary-color);
+  color: var(--text-color); /* Uses text color */
 }
 
 tr:hover .star-empty {
   opacity: 0.7;
 }
 
-.star-empty:hover {
-  opacity: 1;
+.star-filled {
+  color: #ffc107 !important;
+  opacity: 1 !important;
 }
 
-.star-filled {
-  color: #ffc107;
+.star-filled.user-starred {
+  opacity: 1 !important;
+  color: var(--text-color) !important; /* Same color as text */
 }
 
 .star-filled.default-star {
-  opacity: 1;
+  opacity: 1 !important;
+  color: #ffc107 !important; /* Gold color */
 }
 
 .user-starred {
