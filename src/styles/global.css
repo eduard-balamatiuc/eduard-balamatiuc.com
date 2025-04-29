@@ -64,7 +64,8 @@ a:hover {
 /* Table styles */
 table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   margin: 2rem 0;
 }
 
@@ -76,9 +77,19 @@ th {
   border-bottom: 1px solid var(--border-color);
 }
 
+th:first-child {
+  border-bottom: none;
+  width: 40px;
+  padding-right: 0;
+}
+
 td {
   padding: 1rem 0;
   border-bottom: 1px solid var(--border-color);
+}
+
+td:first-child {
+  border-bottom: none;
 }
 
 tr:hover {
@@ -115,6 +126,16 @@ nav {
 .post-views {
   color: var(--views-color);
   text-align: right;
+}
+
+.post-star {
+  width: 40px;
+  padding-left: 12px;
+  color: var(--secondary-color);
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  padding-right: 0;
 }
 
 .post-title {
