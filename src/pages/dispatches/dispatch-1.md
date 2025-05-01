@@ -3,6 +3,7 @@ layout: ../../layouts/MarkdownDispatchLayout.astro
 title: 'So this site website page call it whatever, will be my laboratory work'
 date: '2025-04-08'
 time: '10:30'
+description: 'Some context around this website and how the idea started'
 ---
 So this site website page call it whatever, will be my laboratory work,at least in until I present it to my teacher and I got a requirement of using Astro build for it. 
 
