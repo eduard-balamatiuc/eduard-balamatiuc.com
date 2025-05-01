@@ -4,6 +4,7 @@ title: 'Hi there!'
 date: '2025-04-08'
 time: '10:00'
 description: 'An introduction to my personal blog'
+image: '/letter-e.png'
 ---
 
 Hi there!

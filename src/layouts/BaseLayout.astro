@@ -6,6 +6,7 @@ import Header from "../components/Header.astro";
 
 const pageTitle = Astro.props.pageTitle
 const pageDescription = Astro.props.pageDescription
+const pageImage = Astro.props.pageImage
 ---
 
 <html lang="en">
@@ -17,7 +18,7 @@ const pageDescription = Astro.props.pageDescription
         basic: {
             title: pageTitle,
             type: Astro.props.pageType || "website",
-            image: "/letter-e.png",
+            image: pageImage || "/letter-e.png",
             url: Astro.props.pageUrl || Astro.url.href,
         },
     }}/>

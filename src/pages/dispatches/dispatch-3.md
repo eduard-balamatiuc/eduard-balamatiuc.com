@@ -4,6 +4,7 @@ title: 'A Git Story'
 date: '2025-04-29'
 time: '10:15'
 description: 'A trial on a humorous take on the git history of this site'
+image: '/letter-e.png'
 ---
 So, you want to know the story behind this little corner of the internet? Let me take you on a journey through the git history, a tale of commits, frustrations, and small victories.
 
