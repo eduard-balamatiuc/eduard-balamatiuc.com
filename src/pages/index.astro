@@ -3,7 +3,15 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Dispatch from "../components/Dispatch.astro";
 import { starredDispatches } from "../data/starred-dispatches";
 
-const dispatches = Object.values(await import.meta.glob('./dispatches/*.md', { eager: true })).sort((a: any, b: any) => {
+const dispatches = Object.values(await import.meta.glob('./dispatches/*.md', { eager: true }))
+    .map((dispatch: any) => ({
+        ...dispatch,
+        url: `/dispatches/${dispatch.frontmatter.title
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, '-')
+            .replace(/(^-|-$)/g, '')}`
+    }))
+    .sort((a: any, b: any) => {
     const dateA = new Date(a.frontmatter.date).getTime();
     const dateB = new Date(b.frontmatter.date).getTime();
     
