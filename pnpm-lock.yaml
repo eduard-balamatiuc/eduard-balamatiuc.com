@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@yeskunall/astro-umami':
+        specifier: 0.0.5
+        version: 0.0.5(astro@5.7.0(rollup@4.40.0)(typescript@5.8.3)(yaml@2.7.1))
       astro:
         specifier: ^5.7.0
         version: 5.7.0(rollup@4.40.0)(typescript@5.8.3)(yaml@2.7.1)
@@ -557,6 +560,11 @@ packages:
 
   '@vscode/l10n@0.0.18':
     resolution: {integrity: sha512-KYSIHVmslkaCDyw013pphY+d7x1qV8IZupYfeIfzNA+nsaWHbn5uPuQRvdRFsa9zFzGeudPuoGoZ1Op4jrJXIQ==}
+
+  '@yeskunall/astro-umami@0.0.5':
+    resolution: {integrity: sha512-PRxSo6Gox5+GC/Mjb1Q4/l7zioI0J7uxw0N8WjejEyMBD6+pJiDBcetmA+JLY39fWPtupq0181jsAUYEPraSfw==}
+    peerDependencies:
+      astro: ^3.0.0 || ^4.0.0 || ^5.0.0
 
   acorn@8.14.1:
     resolution: {integrity: sha512-OvQ/2pUDKmgfCg++xsTX1wGxfTaszcHVcTctW4UJB4hibJx2HXxxO5UmVgyjMa+ZDsiaf5wWLXYpRWMmBI0QHg==}
@@ -2275,6 +2283,10 @@ snapshots:
       vscode-uri: 3.1.0
 
   '@vscode/l10n@0.0.18': {}
+
+  '@yeskunall/astro-umami@0.0.5(astro@5.7.0(rollup@4.40.0)(typescript@5.8.3)(yaml@2.7.1))':
+    dependencies:
+      astro: 5.7.0(rollup@4.40.0)(typescript@5.8.3)(yaml@2.7.1)
 
   acorn@8.14.1: {}
 
