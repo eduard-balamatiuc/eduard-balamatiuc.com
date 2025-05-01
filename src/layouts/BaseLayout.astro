@@ -1,12 +1,26 @@
 ---
+import { SEO } from "astro-seo";
+
 import "../styles/global.css";
 import Header from "../components/Header.astro";
 
 const pageTitle = Astro.props.pageTitle
+const pageDescription = Astro.props.pageDescription
 ---
 
 <html lang="en">
 <head>
+    <SEO
+    title={pageTitle}
+    description={pageDescription}
+    openGraph={{
+        basic: {
+            title: pageTitle,
+            type: Astro.props.pageType || "website",
+            image: "/letter-e.png",
+            url: Astro.props.pageUrl || Astro.url.href,
+        },
+    }}/>
     <meta charset="utf-8" />
     <link rel="icon" type="image/x-icon" href="/letter-e.png">
     <meta name="viewport" content="width=device-width" />
