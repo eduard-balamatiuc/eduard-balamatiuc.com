@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  # MongoDB service
+  mongo:
+    image: mongo:latest
+    restart: always
+    volumes:
+      - mongo-data:/data/db
+    ports:
+      - "27018:27017"
+
+  # Backend GraphQL API service
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    restart: always
+    depends_on:
+      - mongo
+    environment:
+      - PORT=4000
+      - MONGODB_URI=mongodb://mongo:27017/graphql-api
+      - JWT_SECRET=your_jwt_secret_key
+      - JWT_EXPIRATION=1m
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./backend/src:/app/src
+
+  # Frontend service
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    depends_on:
+      - api
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./src:/app/src
+      - ./public:/app/public
+
+volumes:
+  mongo-data: 
