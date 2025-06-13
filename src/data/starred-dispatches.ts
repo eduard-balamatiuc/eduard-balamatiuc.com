@@ -1,3 +1,3 @@
 export const starredDispatches = [
-    "So how the deployment happened?",
+    "Setting Up Ubuntu Server on Intel Mac Minis: Complete Guide",
 ]; 
