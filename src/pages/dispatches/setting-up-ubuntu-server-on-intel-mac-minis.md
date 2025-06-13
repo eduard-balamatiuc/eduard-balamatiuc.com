@@ -1,14 +1,11 @@
 ---
 layout: ../../layouts/MarkdownDispatchLayout.astro
-title: 'Setting Up Ubuntu Server on Intel Mac Minis: Complete Guide'
+title: 'Setting Up Ubuntu Server on Intel Mac Minis'
 date: '2025-01-10'
 time: '15:00'
 description: 'Complete step-by-step guide for setting up Ubuntu Server on Intel Mac Minis, including static IP configuration and SSH security hardening.'
 image: '/letter-e.png'
 ---
-
-# Setting Up Ubuntu Server on Intel Mac Minis: Complete Guide
-
 This guide will walk you through setting up Ubuntu Server on Intel-based Mac Minis, configuring static IP addresses, and securing SSH access. Whether you're new to Linux or have some experience, this step-by-step tutorial will help you get your servers up and running.
 
 > ℹ️ This is the guide I wished I had when I first set up my server. It's a bit verbose, but it's should get the job done.
