@@ -1,3 +1,3 @@
 export const starredDispatches = [
-    "Setting Up Ubuntu Server on Intel Mac Minis",
-]; 
+    "setting-up-ubuntu-server-on-intel-mac-minis",
+];

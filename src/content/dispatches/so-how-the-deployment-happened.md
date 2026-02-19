@@ -1,6 +1,6 @@
 ---
-layout: ../../layouts/MarkdownDispatchLayout.astro
 title: 'So how the deployment happened?'
+slug: 'so-how-the-deployment-happened'
 date: '2025-04-08'
 time: '11:00'
 description: 'A brief overview of the deployment process and some challenges faced'

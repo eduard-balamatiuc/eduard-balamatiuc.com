@@ -1,30 +1,21 @@
 ---
+import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Dispatch from "../components/Dispatch.astro";
 import { starredDispatches } from "../data/starred-dispatches";
 
-const dispatches = Object.values(await import.meta.glob('./dispatches/*.md', { eager: true }))
-    .map((dispatch: any) => ({
-        ...dispatch,
-        url: `/dispatches/${dispatch.frontmatter.title
-            .toLowerCase()
-            .replace(/[^a-z0-9]+/g, '-')
-            .replace(/(^-|-$)/g, '')}`
-    }))
-    .sort((a: any, b: any) => {
-    const dateA = new Date(a.frontmatter.date).getTime();
-    const dateB = new Date(b.frontmatter.date).getTime();
-    
-    if (dateB !== dateA) {
-        return dateB - dateA;
-    }
-    
-    // If dates are equal, check for time property
-    if (a.frontmatter.time && b.frontmatter.time) {
-        return b.frontmatter.time.localeCompare(a.frontmatter.time);
-    }
-    
-    return 0; // If no time property or times are equal, maintain original order
+const dispatches = (await getCollection("dispatches")).sort((a, b) => {
+  const dateDiff = b.data.date.getTime() - a.data.date.getTime();
+
+  if (dateDiff !== 0) {
+    return dateDiff;
+  }
+
+  if (a.data.time && b.data.time) {
+    return b.data.time.localeCompare(a.data.time);
+  }
+
+  return 0;
 });
 ---
 
@@ -44,9 +35,15 @@ const dispatches = Object.values(await import.meta.glob('./dispatches/*.md', { e
             </thead>
             <tbody>
                 {dispatches
-                    .map((dispatch: any) => (
+                    .map((dispatch) => (
                         <tr>
-                            <Dispatch title={dispatch.frontmatter.title} date={dispatch.frontmatter.date} url={dispatch.url} starred={starredDispatches.includes(dispatch.frontmatter.title)} />
+                            <Dispatch
+                                id={dispatch.slug}
+                                title={dispatch.data.title}
+                                date={dispatch.data.date.toISOString().slice(0, 10)}
+                                url={`/dispatches/${dispatch.slug}`}
+                                starred={starredDispatches.includes(dispatch.slug)}
+                            />
                         </tr>
                     ))}
             </tbody>

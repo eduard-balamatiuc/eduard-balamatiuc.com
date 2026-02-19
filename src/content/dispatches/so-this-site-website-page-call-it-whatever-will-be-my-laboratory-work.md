@@ -1,6 +1,6 @@
 ---
-layout: ../../layouts/MarkdownDispatchLayout.astro
 title: 'So this site website page call it whatever, will be my laboratory work'
+slug: 'so-this-site-website-page-call-it-whatever-will-be-my-laboratory-work'
 date: '2025-04-08'
 time: '10:30'
 description: 'Some context around this website and how the idea started'

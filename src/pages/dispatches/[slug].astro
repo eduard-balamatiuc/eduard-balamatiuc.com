@@ -1,0 +1,29 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  const dispatches = await getCollection("dispatches");
+
+  return dispatches.map((dispatch) => ({
+    params: { slug: dispatch.slug },
+    props: { dispatch },
+  }));
+}
+
+const { dispatch } = Astro.props as { dispatch: CollectionEntry<"dispatches"> };
+const { Content } = await render(dispatch);
+---
+
+<BaseLayout
+  pageTitle={dispatch.data.title}
+  pageDescription={dispatch.data.description}
+  pageImage={dispatch.data.image}
+  pageType="article"
+>
+  <main>
+    <h1>{dispatch.data.title}</h1>
+    <Content />
+  </main>
+</BaseLayout>

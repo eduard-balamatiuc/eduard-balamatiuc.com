@@ -1,6 +1,6 @@
 ---
-layout: ../../layouts/MarkdownDispatchLayout.astro
 title: 'Setting Up Ubuntu Server on Intel Mac Minis'
+slug: 'setting-up-ubuntu-server-on-intel-mac-minis'
 date: '2025-06-13'
 time: '11:00'
 description: 'Complete step-by-step guide for setting up Ubuntu Server on Intel Mac Minis, including static IP configuration and SSH security hardening.'

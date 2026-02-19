@@ -1,6 +1,6 @@
 ---
-layout: ../../layouts/MarkdownDispatchLayout.astro
 title: 'Hi there!'
+slug: 'hi-there'
 date: '2025-04-08'
 time: '10:00'
 description: 'An introduction to my personal blog'

@@ -1,5 +1,5 @@
 const starredDispatches = [
-  "Setting Up Ubuntu Server on Intel Mac Minis",
+  "setting-up-ubuntu-server-on-intel-mac-minis",
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -9,18 +9,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Apply starred state on page load
   document.querySelectorAll('.post-star').forEach(starCell => {
-    const title = starCell.dataset.title;
+    const dispatchId = starCell.dataset.dispatchId;
     const starIcon = starCell.querySelector('svg');
     
-    if (!title || !starIcon) return;
+    if (!dispatchId || !starIcon) return;
     
     // Check if this is a default starred item (gold and untoggable)
-    if (starredDispatches.includes(title)) {
+    if (starredDispatches.includes(dispatchId)) {
       starIcon.classList.remove('star-empty');
       starIcon.classList.add('star-filled', 'default-star');
     }
     // Check if this item is in user-starred list (text color and toggable)
-    else if (userStarred.includes(title)) {
+    else if (userStarred.includes(dispatchId)) {
       starIcon.classList.remove('star-empty');
       starIcon.classList.add('star-filled', 'user-starred');
     }
@@ -32,23 +32,23 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       
       const starCell = button.closest('.post-star');
-      const title = starCell?.dataset.title;
+      const dispatchId = starCell?.dataset.dispatchId;
       const starIcon = button.querySelector('svg');
       
-      if (!title || !starIcon) return;
+      if (!dispatchId || !starIcon) return;
       
       // Skip default starred items (they can't be toggled)
-      if (starredDispatches.includes(title)) return;
+      if (starredDispatches.includes(dispatchId)) return;
       
       // Toggle starred state
-      if (userStarred.includes(title)) {
+      if (userStarred.includes(dispatchId)) {
         // Remove from starred
-        userStarred = userStarred.filter(item => item !== title);
+        userStarred = userStarred.filter(item => item !== dispatchId);
         starIcon.classList.remove('star-filled', 'user-starred');
         starIcon.classList.add('star-empty');
       } else {
         // Add to starred
-        userStarred.push(title);
+        userStarred.push(dispatchId);
         starIcon.classList.remove('star-empty');
         starIcon.classList.add('star-filled', 'user-starred');
       }

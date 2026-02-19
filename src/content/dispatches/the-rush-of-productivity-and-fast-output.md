@@ -1,6 +1,6 @@
 ---
-layout: ../../layouts/MarkdownDispatchLayout.astro
 title: 'The rush of productivity and fast output'
+slug: 'the-rush-of-productivity-and-fast-output'
 date: '2025-12-05'
 time: '22:00'
 description: 'Some thoughts around the current state of learning tech'

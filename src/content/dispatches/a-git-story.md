@@ -1,6 +1,6 @@
 ---
-layout: ../../layouts/MarkdownDispatchLayout.astro
 title: 'A Git Story'
+slug: 'a-git-story'
 date: '2025-04-29'
 time: '10:15'
 description: 'A trial on a humorous take on the git history of this site'
