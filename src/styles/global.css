@@ -190,3 +190,126 @@ tr:hover .star-empty {
 .user-starred {
   opacity: 1 !important;
 }
+
+/* ── Dispatch content (Monokai Pro inspired) ── */
+
+:root {
+  --mono-pink: #ff6188;
+  --mono-green: #a9dc76;
+  --mono-yellow: #ffd866;
+  --mono-orange: #fc9867;
+  --mono-purple: #ab9df2;
+  --mono-cyan: #78dce8;
+  --mono-surface: #2d2a2e;
+  --mono-surface-light: #383539;
+  --mono-border: #49464e;
+}
+
+.light-theme {
+  --mono-pink: #d9376e;
+  --mono-green: #4e8a2f;
+  --mono-yellow: #9a7b1a;
+  --mono-orange: #c96936;
+  --mono-purple: #7653c1;
+  --mono-cyan: #2b8db3;
+  --mono-surface: #eae8ea;
+  --mono-surface-light: #f5f3f5;
+  --mono-border: #d4d0d4;
+}
+
+/* Links inside dispatch content */
+main a {
+  color: var(--mono-cyan);
+  text-decoration: underline;
+  text-decoration-color: rgba(120, 220, 232, 0.3);
+  text-underline-offset: 3px;
+}
+
+main a:hover {
+  text-decoration-color: var(--mono-cyan);
+}
+
+/* Inline code */
+main :not(pre) > code {
+  background: var(--mono-surface);
+  color: var(--mono-green);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+  border: 1px solid var(--mono-border);
+}
+
+/* Code blocks */
+main pre {
+  background: var(--mono-surface) !important;
+  border: 1px solid var(--mono-border);
+  border-radius: 8px;
+  padding: 1.2em 1.4em !important;
+  overflow-x: auto;
+  margin: 1.5em 0;
+  line-height: 1.5;
+}
+
+main pre code {
+  font-size: 0.88em;
+  background: none !important;
+  border: none;
+  padding: 0;
+}
+
+/* Blockquotes */
+main blockquote {
+  border-left: 3px solid var(--mono-yellow);
+  background: var(--mono-surface);
+  margin: 1.5em 0;
+  padding: 0.8em 1.2em;
+  border-radius: 0 6px 6px 0;
+  color: var(--text-color);
+}
+
+main blockquote p {
+  margin: 0;
+}
+
+/* Bold / strong */
+main strong {
+  color: var(--mono-orange);
+  font-weight: 600;
+}
+
+/* Headings inside dispatches */
+main h2 {
+  color: var(--mono-pink);
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+main h3 {
+  color: var(--mono-purple);
+  margin-top: 2rem;
+}
+
+/* Lists */
+main ul, main ol {
+  padding-left: 1.5em;
+}
+
+main li {
+  margin: 0.4em 0;
+}
+
+main li code {
+  background: var(--mono-surface);
+  color: var(--mono-green);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+  border: 1px solid var(--mono-border);
+}
+
+/* Horizontal rules */
+main hr {
+  border: none;
+  border-top: 1px solid var(--mono-border);
+  margin: 2rem 0;
+}
