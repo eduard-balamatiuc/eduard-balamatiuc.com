@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@yeskunall/astro-umami": "0.0.5",
-    "astro": "^5.7.0",
+    "astro": "^5.18.0",
     "astro-seo": "^0.8.4"
   }
 }
