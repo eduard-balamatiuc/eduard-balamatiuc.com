@@ -1,0 +1,13 @@
+---
+layout: ../../layouts/MarkdownDispatchLayout.astro
+title: 'Giving Knowledge'
+date: '2026-03-09'
+time: '14:19'
+description: 'A sharing moment with the internet and the world itself of one of my most valuable projects, which is knowledge.'
+image: '/letter-e.png'
+---
+I always thought of information and knowledge as something shareable, as something that should be easily interchangeable between all people, after all if you look into perspective, we are all trying to make our society better, improve and just leave a good life, I won't get too deep into the phylosophical aspect of it but I think is more than fair to say that I benefited my entire life from knowledge that was given for free. I guess the most influential example from my history would be my interaction with [Sigmoid](https://www.instagram.com/sigmo.ai/). I came in as a newbie an the organization gave me a head start into my career around Data, Machine Learning & AI, by answering all my questions and providing me all the information that I could have asked for to grow and become a specialist in the domain. Fast forward to today I am still trying to keep that legacy alive and to give back to the community as much as possible.
+
+And [`knowledge`](knowledge.eduard-balamatiuc.com) is my attempt towards sharing and giving back to the community, it came as a combination from finding out about the project [quartz](https://quartz.jzhao.xyz/) which is an amazing work of art that I heard about from [@danielavornic](https://github.com/danielavornic) sometimes I have no idea how she find out about all this cool stuff from the world hehe! This project was sitting for a long time under my task list and it just came as a consequence of me trying to write down and explain different concepts in preparations for a course that we're launching soon at [sigmoid.courses](sigmoid.courses) (so you can go check that out as well), but while writing I realized how much information I am actually interacting with and how much linkage there is between everything so that's when, badabim badaboom, this site appeared, and I will be honest with some orchestration help I managed to put it all in some more or less reasonable (hopefully readable) format!
+
+P.S If by any chance you've come across it, and you enjoy it or appreciate it, a github star would probably encourage me to be more active about it, just saying :)
