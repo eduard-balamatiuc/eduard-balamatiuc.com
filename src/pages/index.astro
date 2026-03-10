@@ -2,30 +2,14 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Dispatch from "../components/Dispatch.astro";
 import { starredDispatches } from "../data/starred-dispatches";
+import { compareDispatchPublishedAt, slugifyDispatchTitle } from "../utils/dispatch";
 
-const dispatches = Object.values(await import.meta.glob('./dispatches/*.md', { eager: true }))
+const dispatches = Object.values(import.meta.glob('./dispatches/*.md', { eager: true }))
     .map((dispatch: any) => ({
         ...dispatch,
-        url: `/dispatches/${dispatch.frontmatter.title
-            .toLowerCase()
-            .replace(/[^a-z0-9]+/g, '-')
-            .replace(/(^-|-$)/g, '')}`
+        url: `/dispatches/${slugifyDispatchTitle(dispatch.frontmatter.title)}`
     }))
-    .sort((a: any, b: any) => {
-    const dateA = new Date(a.frontmatter.date).getTime();
-    const dateB = new Date(b.frontmatter.date).getTime();
-    
-    if (dateB !== dateA) {
-        return dateB - dateA;
-    }
-    
-    // If dates are equal, check for time property
-    if (a.frontmatter.time && b.frontmatter.time) {
-        return b.frontmatter.time.localeCompare(a.frontmatter.time);
-    }
-    
-    return 0; // If no time property or times are equal, maintain original order
-});
+    .sort((a: any, b: any) => compareDispatchPublishedAt(a.frontmatter, b.frontmatter));
 ---
 
 <BaseLayout
