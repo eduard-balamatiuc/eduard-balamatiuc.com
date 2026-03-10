@@ -1,20 +1,22 @@
-## Summary
+## Why
 
-<!-- What problem does this PR solve? -->
+<!-- Why does this PR exist? What problem does it solve or what need does it address? -->
 
-## Changes
+## What changed
 
-<!-- List the main changes made in this PR -->
+<!-- What is different after this PR? Summarize the key changes. -->
 
-## Validation
+## How it works
 
-<!-- Commands run locally, screenshots, or notes -->
+<!-- How was this implemented? Describe the approach and any notable decisions. -->
+
+## How to verify
+
+<!-- Step-by-step instructions to see the changes in action. -->
 
 ## Checklist
 
 - [ ] Feature scope is small and focused
-- [ ] Acceptance criteria are met
 - [ ] `pnpm build` passes locally
 - [ ] `pnpm test` passes locally
 - [ ] No unrelated refactors were included
-- [ ] UX/accessibility impact considered (keyboard/mobile/basic semantics)
