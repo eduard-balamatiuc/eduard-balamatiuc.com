@@ -76,11 +76,24 @@ export default function rehypeSidenotes() {
           {
             type: 'element',
             tagName: 'span',
-            properties: { className: ['sidenote-number'] },
-            children: [{ type: 'text', value: String(counter) }],
+            properties: { className: ['sidenote-bar'] },
+            children: [],
           },
-          { type: 'text', value: ' ' },
-          ...content,
+          {
+            type: 'element',
+            tagName: 'span',
+            properties: { className: ['sidenote-content'] },
+            children: [
+              {
+                type: 'element',
+                tagName: 'span',
+                properties: { className: ['sidenote-number'] },
+                children: [{ type: 'text', value: String(counter) }],
+              },
+              { type: 'text', value: ' ' },
+              ...content,
+            ],
+          },
         ],
       };
 
