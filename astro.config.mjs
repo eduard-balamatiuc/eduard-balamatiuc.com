@@ -1,6 +1,7 @@
 // @ts-check
 import umami from "@yeskunall/astro-umami";
 import { defineConfig } from 'astro/config';
+import rehypeSidenotes from './src/plugins/rehype-sidenotes.mjs';
 
 export default defineConfig({
   site: 'https://eduard-balamatiuc.com',
@@ -8,6 +9,7 @@ export default defineConfig({
     shikiConfig: {
       theme: 'monokai',
     },
+    rehypePlugins: [rehypeSidenotes],
   },
   integrations: [
     umami({

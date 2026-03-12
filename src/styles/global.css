@@ -27,6 +27,7 @@ html {
   background-color: var(--bg-color);
   font-family: 'JetBrains Mono', 'Fira Code', monospace;
   color: var(--text-color);
+  overflow-x: hidden;
 }
 
 body {
@@ -312,4 +313,66 @@ main hr {
   border: none;
   border-top: 1px solid var(--mono-border);
   margin: 2rem 0;
+}
+
+/* ── Sidenotes ── */
+
+.dispatch-content {
+  position: relative;
+}
+
+.sidenote {
+  position: absolute;
+  left: calc(100% + 2rem);
+  width: 280px;
+  font-size: 0.78em;
+  line-height: 1.5;
+  color: var(--secondary-color);
+  display: none;
+  opacity: 0;
+  transform: translateX(12px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+}
+
+.sidenote.visible {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+.sidenote-number {
+  color: var(--mono-cyan);
+  font-weight: 600;
+  margin-right: 0.3em;
+}
+
+.sidenote .sidenote-p {
+  display: block;
+}
+
+.sidenote a {
+  font-size: 1em;
+}
+
+/* Footnote reference styling */
+main sup a[data-footnote-ref] {
+  color: var(--mono-cyan);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Wide screens: show sidenotes, hide bottom footnotes */
+@media (min-width: 1300px) {
+  .sidenote-fallback-section {
+    display: none;
+  }
+}
+
+/* Narrow screens: sidenotes hidden (JS handles display toggle),
+   bottom footnotes shown */
+@media (max-width: 1299px) {
+  .sidenote {
+    display: none !important;
+  }
 }
