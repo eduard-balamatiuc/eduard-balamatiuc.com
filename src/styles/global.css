@@ -258,6 +258,19 @@ main pre code {
   padding: 0;
 }
 
+/* Light theme: swap Shiki syntax colors to light variant */
+.light-theme .astro-code,
+.light-theme .astro-code span {
+  color: var(--shiki-light) !important;
+  font-style: var(--shiki-light-font-style) !important;
+  font-weight: var(--shiki-light-font-weight) !important;
+  text-decoration: var(--shiki-light-text-decoration) !important;
+}
+
+.light-theme .astro-code span {
+  background-color: transparent !important;
+}
+
 /* Blockquotes */
 main blockquote {
   border-left: 3px solid var(--mono-yellow);
