@@ -7,7 +7,11 @@ export default defineConfig({
   site: 'https://eduard-balamatiuc.com',
   markdown: {
     shikiConfig: {
-      theme: 'monokai',
+      themes: {
+        dark: 'monokai',
+        light: 'github-light',
+      },
+      defaultColor: 'dark',
     },
     rehypePlugins: [rehypeSidenotes],
   },
