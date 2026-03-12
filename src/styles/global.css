@@ -329,16 +329,63 @@ main hr {
   line-height: 1.5;
   color: var(--secondary-color);
   display: none;
-  opacity: 0;
-  transform: translateX(12px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-  pointer-events: none;
+  cursor: pointer;
 }
 
-.sidenote.visible {
+/* Collapsed bar (default visible state) */
+.sidenote .sidenote-bar {
+  display: block;
+  width: 3px;
+  height: 1.4em;
+  background: var(--mono-cyan);
+  border-radius: 2px;
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+}
+
+.sidenote:hover .sidenote-bar {
   opacity: 1;
-  transform: translateX(0);
-  pointer-events: auto;
+}
+
+/* Content hidden until expanded */
+.sidenote .sidenote-content {
+  display: none;
+}
+
+/* Expanded state */
+.sidenote.visible .sidenote-bar {
+  display: none;
+}
+
+.sidenote.visible .sidenote-content {
+  display: block;
+  animation: sidenote-reveal 0.4s ease forwards;
+}
+
+@keyframes sidenote-reveal {
+  from {
+    opacity: 0;
+    transform: translateX(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Collapsing state (reverse animation) */
+.sidenote.collapsing .sidenote-bar {
+  display: none;
+}
+
+.sidenote.collapsing .sidenote-content {
+  display: block;
+  animation: sidenote-collapse 0.3s ease forwards;
+}
+
+@keyframes sidenote-collapse {
+  from { opacity: 1; transform: translateX(0); }
+  to { opacity: 0; transform: translateX(8px); }
 }
 
 .sidenote-number {

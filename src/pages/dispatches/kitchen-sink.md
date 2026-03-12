@@ -9,7 +9,7 @@ hidden: true
 
 ## Headings
 
-The h2 above should be pink. Below are h3–h6:
+The h2 above should be pink[^1]. Below are h3–h6:
 
 ### Heading Level 3
 
@@ -25,7 +25,7 @@ This should be purple.
 
 ## Text Formatting
 
-This is a paragraph with **bold text** (should be orange), *italic text*, ***bold and italic combined***, and ~~strikethrough text~~.
+This is a paragraph with **bold text** (should be orange), *italic text*, ***bold and italic combined***, and ~~strikethrough text~~[^2].
 
 Here is a second paragraph to verify spacing between paragraphs. It contains a mix of normal text with **bold** and *italic* inline.
 
@@ -42,7 +42,7 @@ A link in a sentence: visit [knowledge.eduard-balamatiuc.com](https://knowledge.
 
 ## Code
 
-Inline code: `const x = 42;` — should be green.
+Inline code: `const x = 42;` — should be green[^3].
 
 Fenced JavaScript block (Shiki monokai):
 
@@ -73,7 +73,7 @@ Simple blockquote:
 
 > This is a blockquote. It should have distinct styling from regular paragraphs.
 
-Nested blockquote:
+Nested blockquote[^4]:
 
 > This is the outer blockquote.
 >
@@ -101,7 +101,7 @@ Ordered list:
 2. Second item
 3. Third item
 
-Nested list:
+Nested list[^5]:
 
 - Top level A
   - Nested A1
@@ -127,7 +127,7 @@ Check that spacing above and below is consistent.
 
 ## Images
 
-Below is an image — verify layout reflow and that sidenotes reposition correctly around it:
+Below is an image — verify layout reflow and that sidenotes reposition correctly around it[^6]:
 
 ![Letter E logo](/letter-e.png)
 
@@ -145,28 +145,15 @@ Text continues after the image to verify reflow.
 | Links         | Working | Cyan with underline    |
 | Sidenotes     | Working | Scroll-reveal enabled  |
 
-A paragraph after the table to check spacing.
+A paragraph after the table to check spacing[^7].
 
 ---
 
-## Sidenotes
+## Sidenotes Stress Test
 
-This section stress-tests footnote rendering, overlap prevention, and scroll-reveal behavior.
+Here are three footnotes placed close together[^8] to test overlap prevention[^9] when sidenotes stack vertically[^10].
 
-Here are three footnotes placed close together[^1] to test overlap prevention[^2] when sidenotes stack vertically[^3].
-
-After a gap of text — this paragraph exists to create vertical distance between the cluster above and the next footnote. The sidenote for this one should align cleanly without being pushed down by the previous cluster[^4].
-
-This footnote contains a link inside it[^5]. Verify that the link is clickable and styled correctly within the sidenote.
-
-Finally, here is a dense paragraph that contains a footnote buried in the middle of running text. The quick brown fox jumps over the lazy dog, and somewhere in here we reference something important[^6] before continuing with more text after the reference to make sure the inline marker sits naturally in the flow.
-
-[^1]: First clustered sidenote — tests initial placement.
-[^2]: Second clustered sidenote — tests overlap prevention with the first.
-[^3]: Third clustered sidenote — tests stacking when three are close together.
-[^4]: Sidenote after a vertical gap — should reset alignment to its paragraph.
-[^5]: Sidenote with a link: see [Astro docs](https://docs.astro.build/) for reference.
-[^6]: Sidenote from a dense paragraph — tests inline marker positioning.
+After a gap of text — this paragraph exists to create vertical distance between the cluster above and the next footnote. The sidenote for this one should align cleanly without being pushed down by the previous cluster.
 
 ---
 
@@ -181,16 +168,29 @@ Blockquote containing a list:
 > - Code blocks
 > - Sidenote positioning
 
-A paragraph with every inline element: **bold**, *italic*, ***bold italic***, ~~strikethrough~~, `inline code`, and a [link](/).
+A paragraph with every inline element: **bold**, *italic*, ***bold italic***, ~~strikethrough~~, `inline code`, and a [link](/)[^11].
 
 ---
 
 ## Theme Testing
 
-Toggle between dark and light themes and re-check every section above. Pay attention to:
+Toggle between dark and light themes and re-check every section above[^12]. Pay attention to:
 
 - Heading colors remain visible and distinct
 - Code block backgrounds contrast correctly
 - Link colors are readable
 - Sidenote styling adapts to theme
 - Table borders and alternating rows (if any) render in both themes
+
+[^1]: Headings use Monokai Pro colors — h2 is `--mono-pink`, h3 is `--mono-purple`.
+[^2]: Bold text uses `--mono-orange`. Strikethrough and italic use default text color.
+[^3]: Inline code uses `--mono-green` on a `--mono-surface` background.
+[^4]: Blockquotes have a yellow left border (`--mono-yellow`) and surface background.
+[^5]: Lists should maintain consistent indentation and spacing at all nesting levels.
+[^6]: Images may cause layout reflow — sidenotes should reposition correctly when an image loads.
+[^7]: Tables use GFM (GitHub Flavored Markdown) syntax. Check border rendering in both themes.
+[^8]: First clustered sidenote — tests initial placement.
+[^9]: Second clustered sidenote — tests overlap prevention with the first.
+[^10]: Third clustered sidenote — tests stacking when three are close together.
+[^11]: This sidenote tests a reference after mixed inline formatting in the same paragraph.
+[^12]: Theme toggle should not cause sidenotes to jump or lose their reveal state.
