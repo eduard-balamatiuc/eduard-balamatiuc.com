@@ -9,8 +9,9 @@ const { frontmatter } = Astro.props;
     pageDescription={frontmatter.description}
     pageImage={frontmatter.image}
     >
-    <main>
+    <main class="dispatch-content">
         <h1>{frontmatter.title}</h1>
         <slot />
     </main>
+    <script src="../scripts/sidenotes.js"></script>
 </BaseLayout>
