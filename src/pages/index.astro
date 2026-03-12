@@ -4,6 +4,7 @@ import Dispatch from "../components/Dispatch.astro";
 import { starredDispatches } from "../data/starred-dispatches";
 
 const dispatches = Object.values(await import.meta.glob('./dispatches/*.md', { eager: true }))
+    .filter((dispatch: any) => !dispatch.frontmatter.hidden)
     .map((dispatch: any) => ({
         ...dispatch,
         url: `/dispatches/${dispatch.frontmatter.title
