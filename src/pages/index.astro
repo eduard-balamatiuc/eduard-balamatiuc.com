@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Dispatch from "../components/Dispatch.astro";
+import EmailSubscribe from "../components/EmailSubscribe.astro";
 import { starredDispatches } from "../data/starred-dispatches";
 
 const dispatches = Object.values(await import.meta.glob('./dispatches/*.md', { eager: true }))
@@ -52,5 +53,6 @@ const dispatches = Object.values(await import.meta.glob('./dispatches/*.md', { e
                     ))}
             </tbody>
         </table>
+        <EmailSubscribe />
     </main>
 </BaseLayout>
