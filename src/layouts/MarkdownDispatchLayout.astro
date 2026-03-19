@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
+import Comments from "../components/Comments.astro";
 
 const { frontmatter } = Astro.props;
 ---
@@ -13,5 +14,6 @@ const { frontmatter } = Astro.props;
         <h1>{frontmatter.title}</h1>
         <slot />
     </main>
+    <Comments />
     <script src="../scripts/sidenotes.js"></script>
 </BaseLayout>
