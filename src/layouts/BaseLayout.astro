@@ -7,6 +7,7 @@ import Header from "../components/Header.astro";
 const pageTitle = Astro.props.pageTitle
 const pageDescription = Astro.props.pageDescription
 const pageImage = Astro.props.pageImage
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
 ---
 
 <html lang="en">
@@ -14,12 +15,13 @@ const pageImage = Astro.props.pageImage
     <SEO
     title={pageTitle}
     description={pageDescription}
+    canonical={canonicalURL}
     openGraph={{
         basic: {
             title: pageTitle,
             type: Astro.props.pageType || "website",
             image: pageImage || "/letter-e.png",
-            url: Astro.props.pageUrl || Astro.url.href,
+            url: canonicalURL,
         },
     }}/>
     <meta charset="utf-8" />
@@ -28,6 +30,7 @@ const pageImage = Astro.props.pageImage
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <slot name="head" />
 </head>
 <body>
     <Header />
