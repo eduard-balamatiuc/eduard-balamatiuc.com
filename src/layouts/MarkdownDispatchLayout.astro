@@ -11,6 +11,13 @@ const { frontmatter } = Astro.props;
     >
     <main class="dispatch-content">
         <h1>{frontmatter.title}</h1>
+        {frontmatter.image && frontmatter.image !== '/letter-e.png' && (
+            <img
+                src={frontmatter.image}
+                alt={`Cover image for ${frontmatter.title}`}
+                class="dispatch-hero-image"
+            />
+        )}
         <slot />
     </main>
     <script src="../scripts/sidenotes.js"></script>
