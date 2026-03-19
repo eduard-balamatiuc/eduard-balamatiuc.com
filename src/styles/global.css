@@ -240,8 +240,76 @@ main :not(pre) > code {
   border: 1px solid var(--mono-border);
 }
 
-/* Code blocks */
-main pre {
+/* Code block wrapper */
+.code-block-wrapper {
+  position: relative;
+  margin: 1.5em 0;
+  border: 1px solid var(--mono-border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Code block header with language label and copy button */
+.code-block-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4em 1em;
+  background: var(--mono-surface-light);
+  border-bottom: 1px solid var(--mono-border);
+  font-size: 0.78em;
+  color: var(--secondary-color);
+  user-select: none;
+}
+
+.code-block-lang {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.code-copy-btn {
+  background: none;
+  border: 1px solid var(--mono-border);
+  border-radius: 4px;
+  color: var(--secondary-color);
+  font-family: inherit;
+  font-size: 1em;
+  padding: 0.2em 0.6em;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.code-copy-btn:hover {
+  color: var(--text-color);
+  border-color: var(--text-color);
+}
+
+.code-copy-btn.copied {
+  color: var(--mono-green);
+  border-color: var(--mono-green);
+}
+
+/* Code blocks inside wrapper */
+.code-block-wrapper pre {
+  background: var(--mono-surface) !important;
+  border: none;
+  border-radius: 0;
+  padding: 1.2em 1.4em !important;
+  overflow-x: auto;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.code-block-wrapper pre code {
+  font-size: 0.88em;
+  background: none !important;
+  border: none;
+  padding: 0;
+}
+
+/* Standalone pre blocks without wrapper (fallback) */
+main pre:not(.code-block-wrapper pre) {
   background: var(--mono-surface) !important;
   border: 1px solid var(--mono-border);
   border-radius: 8px;
@@ -251,7 +319,7 @@ main pre {
   line-height: 1.5;
 }
 
-main pre code {
+main pre:not(.code-block-wrapper pre) code {
   font-size: 0.88em;
   background: none !important;
   border: none;
