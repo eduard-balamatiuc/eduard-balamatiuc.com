@@ -2,13 +2,36 @@
 import BaseLayout from "./BaseLayout.astro";
 
 const { frontmatter } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
+const imageURL = new URL(frontmatter.image || "/letter-e.png", Astro.site).href;
+
+const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": frontmatter.title,
+    "description": frontmatter.description,
+    "image": imageURL,
+    "datePublished": frontmatter.date,
+    "url": canonicalURL,
+    "author": {
+        "@type": "Person",
+        "name": "Eduard Balamatiuc",
+        "url": "https://eduard-balamatiuc.com",
+    },
+};
 ---
 
 <BaseLayout
     pageTitle={frontmatter.title}
     pageDescription={frontmatter.description}
     pageImage={frontmatter.image}
+    pageType="article"
     >
+    <script
+        slot="head"
+        type="application/ld+json"
+        set:html={JSON.stringify(articleSchema)}
+    />
     <main class="dispatch-content">
         <h1>{frontmatter.title}</h1>
         <slot />
