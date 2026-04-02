@@ -1,31 +1,34 @@
 :root {
-  --bg-color: #1a1a1a;
+  --bg-color: #1c1c1e;
   --text-color: #e1e1e1;
   --accent-color: #4a88e5;
   --secondary-color: #555;
-  --hover-color: #333;
+  --hover-color: #2a2a2c;
   --border-color: #333;
-  --table-row-hover: #252525;
+  --table-row-hover: #232325;
   --views-color: #888;
   --date-color: #666;
+  --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 }
 
 /* Light theme variables */
 .light-theme {
-  --bg-color: #f4f4f4;
-  --text-color: #333;
+  --bg-color: #faf8f5;
+  --text-color: #2d2d2d;
   --accent-color: #2563eb;
   --secondary-color: #777;
-  --hover-color: #eee;
-  --border-color: #ddd;
-  --table-row-hover: #f0f0f0;
+  --hover-color: #f0ede8;
+  --border-color: #e0ddd8;
+  --table-row-hover: #f5f2ed;
   --views-color: #666;
   --date-color: #888;
 }
 
 html {
   background-color: var(--bg-color);
-  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-family: var(--font-sans);
   color: var(--text-color);
   overflow-x: hidden;
 }
@@ -33,9 +36,9 @@ html {
 body {
   margin: 0 auto;
   width: 100%;
-  max-width: 900px;
-  padding: 2rem;
-  line-height: 1.6;
+  max-width: 950px;
+  padding: 2rem 2.5rem;
+  line-height: 1.7;
 }
 
 * {
@@ -44,13 +47,16 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
   font-weight: 600;
   margin: 1rem 0;
+  letter-spacing: -0.01em;
 }
 
 h1 {
-  font-size: 2.2rem;
+  font-size: 2.4rem;
   margin-bottom: 2rem;
+  line-height: 1.2;
 }
 
 a {
@@ -85,7 +91,7 @@ th:first-child {
 }
 
 td {
-  padding: 1rem 0;
+  padding: 1.1rem 0;
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -190,6 +196,28 @@ tr:hover .star-empty {
 
 .user-starred {
   opacity: 1 !important;
+}
+
+/* Dispatch body text uses serif for editorial feel */
+.dispatch-content {
+  position: relative;
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.dispatch-content p {
+  margin-bottom: 1.4em;
+}
+
+/* Code elements always use monospace */
+main code, main pre {
+  font-family: var(--font-mono);
+}
+
+/* Navigation and UI elements use sans-serif */
+nav, .post-date, .post-views, th {
+  font-family: var(--font-sans);
 }
 
 /* ── Dispatch content (Monokai Pro inspired) ── */
@@ -329,10 +357,6 @@ main hr {
 }
 
 /* ── Sidenotes ── */
-
-.dispatch-content {
-  position: relative;
-}
 
 .sidenote {
   position: absolute;
