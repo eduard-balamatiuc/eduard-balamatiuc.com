@@ -1,6 +1,7 @@
 // @ts-check
 import umami from "@yeskunall/astro-umami";
 import { defineConfig } from 'astro/config';
+import rehypeCodeBlocks from './src/plugins/rehype-code-blocks.mjs';
 import rehypeSidenotes from './src/plugins/rehype-sidenotes.mjs';
 
 export default defineConfig({
@@ -13,7 +14,7 @@ export default defineConfig({
       },
       defaultColor: 'dark',
     },
-    rehypePlugins: [rehypeSidenotes],
+    rehypePlugins: [rehypeSidenotes, rehypeCodeBlocks],
   },
   integrations: [
     umami({
