@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "check": "astro check",
+    "check:ci": "pnpm check && pnpm build",
     "preview": "astro preview",
     "astro": "astro"
   },
