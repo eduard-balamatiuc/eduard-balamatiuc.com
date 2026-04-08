@@ -1,5 +1,6 @@
 ---
-const { title, date, url, starred = false } = Astro.props;
+const { title, date, url, starred = false, image } = Astro.props;
+const hasCustomImage = image && image !== '/letter-e.png';
 ---
 
 <td class="post-star" data-title={title}>
@@ -10,4 +11,11 @@ const { title, date, url, starred = false } = Astro.props;
   </button>
 </td>
 <td class="post-date">{date}</td>
+<td class="post-thumbnail">
+  {hasCustomImage ? (
+    <img src={image} alt="" class="dispatch-thumb" loading="lazy" />
+  ) : (
+    <span class="dispatch-thumb-placeholder" />
+  )}
+</td>
 <td class="post-title"><a href={url}>{title}</a></td>

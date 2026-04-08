@@ -40,6 +40,7 @@ const dispatches = Object.values(await import.meta.glob('./dispatches/*.md', { e
                 <tr>
                     <th class="post-star"></th>
                     <th class="post-date">date</th>
+                    <th class="post-thumbnail"></th>
                     <th class="post-title">title</th>
                 </tr>
             </thead>
@@ -47,7 +48,7 @@ const dispatches = Object.values(await import.meta.glob('./dispatches/*.md', { e
                 {dispatches
                     .map((dispatch: any) => (
                         <tr>
-                            <Dispatch title={dispatch.frontmatter.title} date={dispatch.frontmatter.date} url={dispatch.url} starred={starredDispatches.includes(dispatch.frontmatter.title)} />
+                            <Dispatch title={dispatch.frontmatter.title} date={dispatch.frontmatter.date} url={dispatch.url} starred={starredDispatches.includes(dispatch.frontmatter.title)} image={dispatch.frontmatter.image} />
                         </tr>
                     ))}
             </tbody>
